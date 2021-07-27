@@ -62,4 +62,10 @@ Vamos a terminar con los cálculos y vemos de hacer eso.
 
 Cualquier otra sugerencia no dude en contactarme a la información de contacto.
 
+## Licencia
+En el encabezado de los archivos js y css aparece mi nombre como el creador de el software hasta esta parte.
+No remover esa parte es lo único que se pide para usar el software.
+Quienes vayan agregando funcionalidad pueden ir agregando el nombre y una forma de contactarlo como guía para futuros cambios si fueran necesarios.
+Fuera de eso, el software es de uso libre, puede ser modificado a gusto.
+
 ## Pura Vida
