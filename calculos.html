@@ -1,0 +1,293 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+   <!-- Required meta tags -->
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+
+   <!-- Bootstrap CSS -->
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet"
+      integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+   <link rel="stylesheet" href="css/calculos.css">
+
+   <!-- Javascript -->
+   <!-- <script src="js/calculos.js"></script> -->
+   <!-- <script src="js/calculoHonorarios.js"></script> -->
+   <script src="js/calculoHonorarios.js"></script>
+
+   <title>Calculos</title>
+</head>
+
+<body>
+   <div class="container-fluid">
+      <!-- Encabezado-->
+      <div class="row justify-content-center">
+         <div class="col-sm-10 col-md-8 col-lg-6 col-xl-5">
+            <div id="encabezado">
+               <img src="img/encabezado.png" class="botones">
+            </div>
+            <div id="tituloEncabezado"></div>
+         </div>
+      </div>
+
+      <!-- Botonera Selección Tipo de Calculo -->
+      <div class="row justify-content-center">
+         <div class="col-sm-10 col-md-8 col-lg-6 col-xl-5">
+            <!-- Botonera general de 3 botones -->
+            <div class="botoneraTipoTraspaso">
+               <!-- Boton de Traspaso de Inmuebles -->
+               <div class="botonTipoTraspaso" id="botonTraspasoInmueble">
+               </div>
+               <!-- Boton de Traspaso de Vehículos -->
+               <div class="botonTipoTraspaso" id="botonTraspasoCarro"></div>
+               <!-- Boton de Honorarios Generales  -->
+               <div class="botonTipoTraspaso" id="botonHonorarios"></div>
+            </div>
+         </div>
+      </div> <!-- FIN - Botonera Selección Tipo de Calculo -->
+
+      <!-- ***************************************************************** -->
+      <!-- ***************************************************************** -->
+      <!-- Area de ingreso de monto a ser calculado -->
+      <div class="row justify-content-center">
+         <div class="col-sm-10 col-md-8 col-lg-6 col-xl-5">
+            <div id="sectorIngresoMonto">
+               <input class="textoInput testInput" type="text" id="montoCalculo">
+               <!-- <div class="tipoCambioTitulo">Tipo de Cambio</div> -->
+               <input class="botonCalcular" type="button" value="Colones" onclick="calcularMontoColones('colon')">
+               <input class="botonCalcularDolar" type="button" value="Dolares" onclick="calcularMontoColones('dolar')">
+               <input class="tipoCambio" type="text" value="613.82" id="tipoCambio">
+            </div> <!-- FIN - Area de ingreso de monto a ser calculado -->
+         </div>
+      </div>
+
+      <!-- ***************************************************************** -->
+      <!-- ***************************************************************** -->
+      <!-- Resultado de Calculo de Inmuebles -->
+      <div class="row justify-content-center">
+         <div class="col-sm-10 col-md-8 col-lg-6 col-xl-5">
+            <div id="resultadoInmueble">
+               <div class="renglon" style="font-weight: bold;">
+                  <div class="tituloRenglon impar">COSTO TOTAL DEL TRASPASO</div>
+                  <div class="resultado impar" id="costoTraspasoInmueble">0</div>
+               </div>
+               <!-- Valor del Inmueble -->
+               <div class="renglon">
+                  <div class="tituloRenglon par">VALOR DEL INMUEBLE EN COLONES</div>
+                  <div class="resultado par" id="valorInmuebleColones">0</div>
+               </div>
+               <!-- Timbre Registro Nacional -->
+               <div class="renglon">
+                  <div class="tituloRenglon impar">TIMBRE REGISTRO NACIONAL</div>
+                  <div class="resultado impar" id="timbreRegistroNacionalInmueble">0</div>
+               </div>
+               <!-- Timbre Agrario -->
+               <div class="renglon">
+                  <div class="tituloRenglon par">TIMBRE AGRARIO</div>
+                  <div class="resultado par" id="timbreAgrarioInmueble">0</div>
+               </div>
+               <!-- Timbre Fiscal -->
+               <div class="renglon">
+                  <div class="tituloRenglon impar">TIMBRE FISCAL</div>
+                  <div class="resultado impar" id="timbreFiscalInmueble">0</div>
+               </div>
+               <!-- Timbre Archivo Nacional -->
+               <div class="renglon">
+                  <div class="tituloRenglon par">TIMBRE ARCHIVO NACIONAL</div>
+                  <div class="resultado par" id="timbreArchivoNacionalInmueble">0</div>
+               </div>
+               <!-- Timbre Colegio de Abogados -->
+               <div class="renglon">
+                  <div class="tituloRenglon impar">TIMBRE COLEGIO ABOGADOS</div>
+                  <div class="resultado impar" id="timbreColegioAbogadosInmueble">0</div>
+               </div>
+               <!-- Impuesto de Traspaso -->
+               <div class="renglon">
+                  <div class="tituloRenglon par">IMPUESTO DE TRASPASO</div>
+                  <div class="resultado par" id="impuestoTraspasoInmueble">0</div>
+               </div>
+               <!-- Impuesto Municipalidad -->
+               <div class="renglon">
+                  <div class="tituloRenglon impar">TIMBRE MUNICIPAL</div>
+                  <div class="resultado impar" id="timbreMunicipalImpuesto">0</div>
+               </div>
+               <!-- Honorarios Notario -->
+               <div class="renglon">
+                  <div class="tituloRenglon par">HONORARIOS PROFESIONALES</div>
+                  <div class="resultado par" id="honorariosTraspasoInmueble">0</div>
+               </div>
+               <!-- IVA Honorarios Notario -->
+               <div class="renglon">
+                  <div class="tituloRenglon impar">IVA - HONORARIOS PROFESIONALES</div>
+                  <div class="resultado impar" id="IVAhonorariosTraspasoInmueble">0</div>
+               </div>
+            </div> <!-- FIN - Resultado de Calculo de Inmuebles -->
+         </div>
+      </div>
+
+      <!-- ***************************************************************** -->
+      <!-- ***************************************************************** -->
+      <!-- CALCULO DE CARRO -->
+      <!-- Resultado de Calculo de Carro -->
+      <div class="row justify-content-center">
+         <div class="col-sm-10 col-md-8 col-lg-6 col-xl-5">
+            <div id="resultadoCarro">
+               <div class="renglon" style="font-weight: bold;">
+                  <div class="tituloRenglon impar">COSTO TOTAL DEL TRASPASO</div>
+                  <div class="resultado impar" id="costoTraspasoCarro">0</div>
+               </div>
+               <!-- Valor del Carro -->
+               <div class="renglon">
+                  <div class="tituloRenglon par">VALOR DEL VEHICULO EN COLONES</div>
+                  <div class="resultado par" id="valorCarroColones">0</div>
+               </div>
+               <!-- Timbre Registro Nacional -->
+               <div class="renglon">
+                  <div class="tituloRenglon impar">TIMBRE REGISTRO NACIONAL</div>
+                  <div class="resultado impar" id="timbreRegistroNacionalCarro">0</div>
+               </div>
+               <!-- Timbre Parques Nacionales -->
+               <div class="renglon">
+                  <div class="tituloRenglon par">TIMBRE PARQUES NACIONALES</div>
+                  <div class="resultado par" id="timbreParquesNacionalesCarro">0</div>
+               </div>
+               <!-- Timbre Agrario -->
+               <div class="renglon">
+                  <div class="tituloRenglon impar">TIMBRE AGRARIO</div>
+                  <div class="resultado impar" id="timbreAgrarioCarro">0</div>
+               </div>
+               <!-- Timbre Fiscal -->
+               <div class="renglon">
+                  <div class="tituloRenglon par">TIMBRE FISCAL</div>
+                  <div class="resultado par" id="timbreFiscalCarro">0</div>
+               </div>
+               <!-- Timbre Archivo Nacional -->
+               <div class="renglon">
+                  <div class="tituloRenglon impar">TIMBRE ARCHIVO NACIONAL</div>
+                  <div class="resultado impar" id="timbreArchivoNacionalCarro">0</div>
+               </div>
+               <!-- Timbre Colegio de Abogados -->
+               <div class="renglon">
+                  <div class="tituloRenglon par">TIMBRE COLEGIO ABOGADOS</div>
+                  <div class="resultado par" id="timbreColegioAbogadosCarro">0</div>
+               </div>
+               <!-- Timbre Cruz Roja -->
+               <div class="renglon">
+                  <div class="tituloRenglon impar">TIMBRE CRUZ ROJA</div>
+                  <div class="resultado impar" id="timbreCruzRojaCarro">0</div>
+               </div>
+               <!-- Impuesto de Traspaso -->
+               <div class="renglon">
+                  <div class="tituloRenglon par">IMPUESTO DE TRASPASO</div>
+                  <div class="resultado par" id="impuestoTraspasoCarro">0</div>
+               </div>
+               <!-- Honorarios Notario -->
+               <div class="renglon">
+                  <div class="tituloRenglon impar">HONORARIOS PROFESIONALES</div>
+                  <div class="resultado impar" id="honorariosTraspasoCarro">0</div>
+               </div>
+               <!-- IVA Honorarios Notario -->
+               <div class="renglon">
+                  <div class="tituloRenglon par">IVA - HONORARIOS PROFESIONALES</div>
+                  <div class="resultado par" id="IVAhonorariosTraspasoCarro">0</div>
+               </div>
+            </div> <!-- FIN - Resultado de Calculo de Vehiculos -->
+         </div>
+      </div>
+      <!-- ***************************************************************** -->
+      <!-- ***************************************************************** -->
+      <!-- CALCULO DE HONORARIOS EN GENERAL -->
+      <!-- Resultado de Calculo de HONORARIOS EN GENERAL -->
+      <div class="row justify-content-center">
+         <div class="col-sm-10 col-md-8 col-lg-6 col-xl-5">
+            <div id="resultadoHonorarios">
+               <div class="renglon">
+                  <div class="tituloRenglon impar">MONTO TRABAJO A REALIZAR</div>
+                  <div class="resultado impar" id="montoTrabajoARealizar">0</div>
+               </div>
+               <div class="renglon" style="font-weight: bold;"><div class="tituloRenglon par">MONTO TOTAL DE HONORARIOS</div>
+                  <div class="resultado par" id="montoTotalHonorarios">0</div>
+               </div>
+               <!-- Timbre Registro Nacional -->
+               <div class="renglon">
+                  <div class="tituloRenglon impar">Artículo 74. </div>
+                  <div class="resultado impar" style="background-color:lightcyan;"><br></div>
+               </div>
+               <!-- Timbre Parques Nacionales -->
+               <div class="renglon">
+                  <div class="tituloRenglon impar">Tarifa General para labores notariales:</div>
+                  <div class="resultado impar" style="background-color:lightcyan;"><br></div>
+               </div>
+               <!-- Franja 1 -->
+               <div class="renglon">
+                  <div class="tituloRenglon par">Franja 1 - Hasta 11,000,000 - 2%</div>
+                  <div class="resultado par" id="montoHonorariosFranja1">0</div>
+               </div>
+               <!-- Franja 2 -->
+               <div class="renglon">
+                  <div class="tituloRenglon impar">Franja 2 - De 11,000,001 a 16,500,000 - 1.5%</div>
+                  <div class="resultado impar" id="montoHonorariosFranja2">0</div>
+               </div>
+               <!-- Franja 3 -->
+               <div class="renglon">
+                  <div class="tituloRenglon par">Franja 3 - De 16,500,001 a 33,000,000 - 1.25%</div>
+                  <div class="resultado par" id="montoHonorariosFranja3">0</div>
+               </div>
+               <!-- Franja 4 -->
+               <div class="renglon">
+                  <div class="tituloRenglon impar">Franja 4 - Más de 33,000,001 - 1%</div>
+                  <div class="resultado impar" id="montoHonorariosFranja4">0</div>
+               </div>
+               <!-- Espacio monto minimo -->
+               <div class="renglon">
+                  <div class="tituloRenglon par" style="background-color:lightblue;"><br></div>
+                  <div class="resultado par" style="background-color:lightblue;"><br></div>
+               </div>
+               <!-- Monto Minimo -->
+               <div class="renglon">
+                  <div class="tituloRenglon par">Monto mínimo de 60,500 colones </div>
+                  <div class="resultado par" style="background-color:lightblue;"><br></div>
+               </div>
+               <!-- Aplica monto minimo -->
+               <div class="renglon">
+                  <div class="tituloRenglon par" id="aplicaMontoMinimo"><br></div>
+                  <div class="resultado par" id="montoMinimoAplicado">0</div>
+               </div>
+            </div> <!-- FIN - Resultado de Calculo de Honorarios Generales -->
+         </div>
+      </div>
+
+
+
+   </div> <!-- Fin Container Fluid-->
+
+
+   <!-- Optional JavaScript; choose one of the two! -->
+
+   <!-- Option 1: Bootstrap Bundle with Popper -->
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+      crossorigin="anonymous"></script>
+
+   <!-- Option 2: Separate Popper and Bootstrap JS -->
+   <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js" integrity="sha384-SR1sx49pcuLnqZUnnPwx6FCym0wLsk5JZuNx2bPPENzswTNFaQU1RDvt3wT4gWFG" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.min.js" integrity="sha384-j0CNLUeiqtyaRmlzUHCPZ+Gy5fQu0dQ6eZ/xAww941Ai1SxSY+0EQqNXNE6DZiVc" crossorigin="anonymous"></script>
+    -->
+
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/autonumeric/1.8.2/autoNumeric.js"></script>
+   <script type="text/javascript">
+      $(".testInput").autoNumeric('init', {
+         aSep: ',',
+         aDec: '.',
+         aForm: true,
+         vMax: '999999999',
+         vMin: '-999999999'
+      });
+      comienzo();
+   </script>
+</body>
+
+</html>

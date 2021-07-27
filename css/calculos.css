@@ -1,0 +1,135 @@
+
+/* ****************************************************************
+// ****** HECHO POR FERNANDO LECUNA - nando1209@hotmail.com *******
+// **************************************************************** */
+
+/* body */
+body {
+   background-color: white;
+}
+
+/* Encabezado */
+#encabezado {
+   margin-top: 15px;
+}
+#tituloEncabezado{
+   margin-top: 10px;
+   text-align: center;
+   color:black;
+   padding-bottom: 10px;
+   font-weight: bold;
+   font-style: italic;
+}
+
+/* Botonera Selección Tipo de Calculo */
+.botoneraTipoTraspaso{
+   width: 100%;
+   height: 100px;
+   overflow: hidden;
+}
+.botonTipoTraspaso{
+   width: 30%;
+   height: 100%;
+   margin-left: 2.5%;
+   float: left;
+   border: 1px white solid;
+   border-radius: 15px;
+}
+#botonTraspasoInmueble{
+   background-image: url("../img/inmuebles.png");
+   background-position: center;
+   background-size:cover;
+}
+#botonTraspasoCarro{
+   background-image: url("../img/carros.png");
+   background-position: center;
+   background-size:cover;
+}
+#botonHonorarios{
+   background-image: url("../img/honorarios.png");
+   background-position: center;
+   background-size:cover; 
+}
+.botonFocus{
+   /* border: 5px blue solid; */
+   opacity: 1;
+}
+.botonOutFocus{
+   opacity: .3;
+}
+
+/* Area de ingreso de monto a ser calculado */
+#sectorIngresoMonto{
+   margin-top: 10px;
+}
+
+/* Datos de monto a tasar */
+.botones {
+   width: 100%;
+}
+
+.textoInput{
+   width: 100%;
+   font-size: 3ex;
+   text-align: center;
+}
+.botonCalcular{
+   background-color: skyblue;
+   width: 70%;
+   height: 50px;
+   float: left;
+   margin-top: 10px;
+}
+
+.tipoCambio{
+   background-color: darkgreen;
+   width: 28%;
+   height: 50px;
+   float: left;
+   margin-top: 10px;
+   margin-left: 5px;
+   text-align: center;
+   color: white;
+}
+.botonCalcularDolar{
+   background-color: darkgreen;
+   width: 70%;
+   height: 50px;
+   float: left;
+   margin-top: 10px;
+   margin-left: 0px;
+   margin-bottom: 10px;
+   color:white;
+}
+
+.impar{
+   background-color: lightcyan;
+}
+.par{
+   background-color: lightblue;
+}
+
+.tituloRenglon{
+   font-size: .7em;
+   width: 75%;
+   text-align: left;
+   float: left;
+   padding-left: 5px;
+}
+.resultado{
+   font-size: .7em;
+   width: 25%;
+   float:right;
+   text-align: right;
+   padding-right: 5px;;
+}
+
+#resultadoInmueble{
+   display: none;
+}
+#resultadoCarro{
+   display: none;
+}
+#resultadoHonorarios{
+   display: none;
+}
